@@ -1,4 +1,4 @@
-module github.com/viniciusbls9/crud-movies
+module github.com/viniciusbls9/movie-golang
 
 go 1.20
 
