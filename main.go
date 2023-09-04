@@ -29,17 +29,11 @@ func main() {
 		MaxAge:           300,
 	}))
 
-	movies = append(movies, Movie{
-		ID:      "1",
-		Title:   "Movie example",
-		Watched: false,
-		Genre:   "Action",
-	})
-
 	v1Router := chi.NewRouter()
 	v1Router.Get("/healthz", handlerHealthz)
 	v1Router.Get("/movies", handlerGetMovies)
 	v1Router.Post("/movies", handlerCreateMovie)
+	v1Router.Delete("/movies/{movieID}", handlerDeleteMovie)
 
 	router.Mount("/v1", v1Router)
 
