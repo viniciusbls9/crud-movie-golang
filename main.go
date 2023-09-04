@@ -38,7 +38,7 @@ func main() {
 
 	v1Router := chi.NewRouter()
 	v1Router.Get("/healthz", handlerHealthz)
-	v1Router.Get("/movies", handlerCreateMovie)
+	v1Router.Get("/movies", handlerGetMovies)
 	v1Router.Post("/movies", handlerCreateMovie)
 
 	router.Mount("/v1", v1Router)
