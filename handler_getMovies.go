@@ -14,7 +14,7 @@ func handlerGetMovies(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	rows, err := handlerQueryDB("SELECT ID, Title, Genre, Watched FROM movies")
+	rows, err := db.Query("SELECT ID, Title, Genre, Watched FROM movies")
 	if err != nil {
 		respondWithError(w, http.StatusInternalServerError, fmt.Sprintf("Couldn't query DB: %v", err))
 		return
