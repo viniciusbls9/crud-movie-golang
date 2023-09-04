@@ -16,20 +16,3 @@ func handlerOpenDatabaseConnection() (*sql.DB, error) {
 
 	return db, nil
 }
-
-func handlerQueryDB(query string) (rows *sql.Rows, err error) {
-	db, err := handlerOpenDatabaseConnection()
-
-	if err != nil {
-		return nil, err
-	}
-	defer db.Close()
-
-	rows, err = db.Query(query)
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
-	return rows, nil
-}
