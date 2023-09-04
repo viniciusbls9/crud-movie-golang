@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"github.com/google/uuid"
 )
 
 func handlerCreateMovie(w http.ResponseWriter, r *http.Request) {
@@ -27,8 +29,7 @@ func handlerCreateMovie(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer stmt.Close()
-
-	_, err = stmt.Exec(movie.ID, movie.Title, movie.Genre, false)
+	_, err = stmt.Exec(uuid.New(), movie.Title, movie.Genre, false)
 	if err != nil {
 		respondWithError(w, http.StatusInternalServerError, fmt.Sprintf("Couldn't execute statement: %v", err))
 		return
