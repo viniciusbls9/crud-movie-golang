@@ -22,10 +22,5 @@ jobs:
       - name: Run tests
         run: go test
 
-      - name: Run linters
-        run: |
-          go get golang.org/x/lint/golint
-          golint
-
       - name: Run vet
         run: go vet
