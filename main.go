@@ -34,6 +34,7 @@ func main() {
 	v1Router.Get("/movies", handlerGetMovies)
 	v1Router.Post("/movies", handlerCreateMovie)
 	v1Router.Delete("/movies/{movieID}", handlerDeleteMovie)
+	v1Router.Put("/movies/{movieID}", handlerUpdateMovie)
 
 	router.Mount("/v1", v1Router)
 
