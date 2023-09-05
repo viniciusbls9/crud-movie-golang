@@ -11,7 +11,6 @@ func handlerDeleteMovie(w http.ResponseWriter, r *http.Request) {
 	movieID := chi.URLParam(r, "movieID")
 	db, err := handlerOpenDatabaseConnection()
 	if err != nil {
-		fmt.Println("Failed to connect to database:")
 		respondWithError(w, http.StatusInternalServerError, fmt.Sprintf("Failed to connect to database: %v", err))
 	}
 	defer db.Close()
