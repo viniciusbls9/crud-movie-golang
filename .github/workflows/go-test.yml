@@ -3,7 +3,7 @@ name: Go Test and Lint
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test-and-lint:
